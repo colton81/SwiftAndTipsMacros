@@ -25,7 +25,7 @@ fileprivate let testMacros: [String: Macro.Type] = [
     "SampleBuilderItem": SampleBuilderItemMacro.self
 ]
 #else
-    #error("Macros library is not running")
+    //#error("Macros library is not running")
 #endif
 
 

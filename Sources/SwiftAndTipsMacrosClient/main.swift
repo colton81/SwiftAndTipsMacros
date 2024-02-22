@@ -46,6 +46,10 @@ struct Profile {
     
     @SampleBuilderItem(category: .image(width: 300, height: 300))
     let profileImage: URL
+    
+    
+    @SampleBuilderItem(category: .vin)
+    let vin: String
 }
 
 for profile in Profile.sample {

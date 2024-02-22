@@ -27,4 +27,5 @@ public enum SampleBuilderItemCategory {
     case price
     case image(width: Int, height: Int)
     case url
+    case vin
 }

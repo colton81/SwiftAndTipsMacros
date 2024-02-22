@@ -147,6 +147,7 @@ extension SampleBuilderMacro {
               let generatorType = DataGeneratorType(rawValue: argumentValue.text)
         else {
             // return default generator type
+            
             return .random
         }
         

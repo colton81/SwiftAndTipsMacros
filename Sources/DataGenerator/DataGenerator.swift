@@ -111,7 +111,8 @@ public extension DataGenerator {
                     Provider().appVersion(),
                     Provider().creditCardNumber(),
                     Provider().companyName(),
-                    Provider().username()
+                    Provider().username(),
+                    Provider().vin()
                 ]
                 
                 guard case .builtInValue(let value) = dataCategory?.category
@@ -140,6 +141,8 @@ public extension DataGenerator {
                     Provider().username()
                 case .url, .price:
                     stringCollection.randomElement()!
+                case .vin:
+                        Provider().vin()
                 }
             },
             bool: { Provider().randomBool() },

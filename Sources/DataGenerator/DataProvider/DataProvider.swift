@@ -19,6 +19,7 @@ protocol StringDataProvider {
     func lastName() -> String
     func fullName() -> String
     func email() -> String
+    func vin() -> String
     func address() -> String
     func appVersion() -> String
     func username() -> String

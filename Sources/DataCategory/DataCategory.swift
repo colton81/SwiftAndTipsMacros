@@ -27,10 +27,11 @@ public struct DataCategory: RawRepresentable {
         case creditCardNumber
         case companyName
         case username
-        
+        case vin
         //Double
         case price
         case url
+        
     }
     
     public enum Category {
@@ -95,7 +96,7 @@ public struct DataCategory: RawRepresentable {
         switch self.category {
         case .builtInValue(let value):
             switch value {
-            case .firstName, .lastName, .fullName, .email, .address, .appVersion, .creditCardNumber, .companyName, .username:
+                case .firstName, .lastName, .fullName, .email, .address, .appVersion, .creditCardNumber, .companyName, .username, .vin:
                 return .string
             case .price:
                 return .double
@@ -117,7 +118,7 @@ public struct DataCategory: RawRepresentable {
         case .string:
             let stringCategories: Set<BuiltInValue> = [
                 .firstName, .lastName, .fullName, .email,
-                .address, .appVersion, .creditCardNumber, .companyName, .username
+                .address, .appVersion, .creditCardNumber, .companyName, .username, .vin
             ]
             
             guard case .builtInValue(let value) = category
