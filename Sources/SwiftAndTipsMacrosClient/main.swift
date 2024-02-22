@@ -48,6 +48,7 @@ struct Profile {
     let profileImage: URL
     
     
+    
     @SampleBuilderItem(category: .vin)
     let vin: String
 }
