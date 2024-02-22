@@ -16,7 +16,7 @@ import SwiftSyntax
 import DataGenerator
 import DataCategory
 import SwiftSyntaxMacros
-
+import SwiftDiagnostics
 extension SampleBuilderMacro {
     static func SampleBuilderMacroForStruct(
         structDecl: StructDeclSyntax,

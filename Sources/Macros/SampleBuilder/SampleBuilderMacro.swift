@@ -18,6 +18,11 @@ import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
 import SwiftDiagnostics
 import DataGenerator
+struct MyDiagnostic: DiagnosticMessage {
+    let message: String
+    let diagnosticID: MessageID
+    let severity: DiagnosticSeverity
+}
 
 public struct SampleBuilderMacro: MemberMacro {
     public static func expansion(
@@ -40,6 +45,7 @@ public struct SampleBuilderMacro: MemberMacro {
         let generatorType = getDataGeneratorType(from: node)
         
         if let enumDecl = declaration.as(EnumDeclSyntax.self) {
+            
             return SampleBuilderMacroForEnum(
                 enumDecl: enumDecl,
                 numberOfItems: numberOfItems,
@@ -49,12 +55,20 @@ public struct SampleBuilderMacro: MemberMacro {
         }
         
         if let structDecl = declaration.as(StructDeclSyntax.self) {
-            return SampleBuilderMacroForStruct(
+           
+            
+            var syntax = SampleBuilderMacroForStruct(
                 structDecl: structDecl,
                 numberOfItems: numberOfItems,
                 generatorType: generatorType, 
                 context: context
             )
+            let messageText = "struct decleration: \(syntax)"
+            let messageID = MessageID(domain: "test", id: "papyrus")
+            let message = MyDiagnostic(message: messageText, diagnosticID: messageID, severity: .warning)
+            let diagnostic = Diagnostic(node: Syntax(node), message: message)
+            context.diagnose(diagnostic)
+            return syntax
         }
         
         SampleBuilderDiagnostic.report(
