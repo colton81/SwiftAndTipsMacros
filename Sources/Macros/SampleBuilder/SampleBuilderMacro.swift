@@ -63,11 +63,7 @@ public struct SampleBuilderMacro: MemberMacro {
                 generatorType: generatorType, 
                 context: context
             )
-            let messageText = "struct decleration: \(syntax)"
-            let messageID = MessageID(domain: "test", id: "papyrus")
-            let message = MyDiagnostic(message: messageText, diagnosticID: messageID, severity: .warning)
-            let diagnostic = Diagnostic(node: Syntax(node), message: message)
-            context.diagnose(diagnostic)
+           
             return syntax
         }
         

@@ -9,51 +9,6 @@ import SwiftAndTipsMacros
 import Foundation
 import DataGenerator
 
-let x = #binaryString(10)
-
-print(x)
-
-@SampleBuilder(numberOfItems: 10, dataGeneratorType: .default)
-struct Example {
-    let item1: UUID
-    let item2: Int
-}
-
-for element in Example.sample {
-    print(element.item1, element.item2)
-}
-
-@SampleBuilder(numberOfItems: 3, dataGeneratorType: .random)
-struct Review {
-    let rating: Int
-    let time: Date
-    let product: Product
-}
-
-@SampleBuilder(numberOfItems: 3, dataGeneratorType: .random)
-struct Product {
-    var price: Int
-    var description: String
-}
-
-@SampleBuilder(numberOfItems: 3, dataGeneratorType: .random)
-public struct Profile {
-    @SampleBuilderItem(category: .firstName)
-    public var firstName: String
-    
-    @SampleBuilderItem(category: .lastName)
-    public var lastName: String
-    
-    @SampleBuilderItem(category: .image(width: 300, height: 300))
-    public var profileImage: URL
-    
-    
-    
-    @SampleBuilderItem(category: .vin)
-    public var vin: String
-}
-
-
 @SampleBuilder(numberOfItems: 3, dataGeneratorType: .random)
 public struct VINData: Codable,Identifiable, Hashable {
     public var id:UUID = .init()
@@ -118,6 +73,10 @@ public struct VINData: Codable,Identifiable, Hashable {
         case vehicleType = "VehicleType"
     }
 
+    
+}
+
+extension VINData{
     public init(bodyClass: String = "", displacementL: String = "", doors: String = "", engineCylinders: String = "", engineHP: String = "", engineManufacturer: String = "", errorCode: String = "", errorText: String = "", fuelTypePrimary: String = "", make: String = "", manufacturer: String = "", model: String = "", modelID: String = "", modelYear: String = "", plantCity: String = "", plantCompanyName: String = "", plantCountry: String = "", plantState: String = "", series: String = "", trim: String = "", vin: String = "", vehicleType: String = "") {
         self.bodyClass = bodyClass
         self.displacementL = displacementL
@@ -143,9 +102,7 @@ public struct VINData: Codable,Identifiable, Hashable {
         self.vehicleType = vehicleType
     }
 }
-for profile in Profile.sample {
-    print(profile.firstName, profile.lastName, profile.profileImage)
-}
+
 
 //@SampleBuilder(numberOfItems: 5)
 //struct Person {
@@ -272,13 +229,7 @@ for profile in Profile.sample {
 //}
 
 
-@SampleBuilder(numberOfItems: 6, dataGeneratorType: .random)
-enum MyEnum {
-    indirect case case1(String, Int, String, [String])
-    case case2
-    case case3(Product)
-    case case4([String: Product])
-}
+
 //
 //@SampleBuilder(numberOfItems: 6)
 //struct Test {
