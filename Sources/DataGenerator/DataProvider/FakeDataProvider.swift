@@ -15,6 +15,11 @@
 import Foundation
 
 struct FakeDataProvider: StringDataProvider {
+   
+    
+    
+    
+    
     func firstName() -> String {
         return [
             "Jeanie",
@@ -435,6 +440,57 @@ struct FakeDataProvider: StringDataProvider {
         
         
         ].randomElement()!
+    }
+    func vehicleMake() -> String{
+        return [
+            "Acura", "Alfa Romeo", "Aston Martin", "Audi", "Bentley", "BMW", "Bugatti",
+            "Buick", "Cadillac", "Chevrolet", "Chrysler", "Citroen", "Dodge", "Ferrari",
+            "Fiat", "Ford", "Genesis", "GMC", "Honda", "Hyundai", "Infiniti", "Jaguar",
+            "Jeep", "Kia", "Koenigsegg", "Lamborghini", "Land Rover", "Lexus", "Lincoln",
+            "Lotus", "Maserati", "Mazda", "McLaren", "Mercedes-Benz", "Mini", "Mitsubishi",
+            "Nissan", "Pagani", "Peugeot", "Porsche", "Ram", "Renault", "Rolls-Royce",
+            "Saab", "Saturn", "Scion", "Seat", "Skoda", "Smart", "Subaru", "Suzuki",
+            "Tesla", "Toyota", "Volkswagen", "Volvo", "Abarth", "Alpina", "AMC", "Apollo",
+            "Ariel", "Ascari", "Aston Martin", "Austin", "BAC", "Baojun", "Bowler", "Brabham",
+            "Brilliance", "Bristol", "BYD", "Cadillac", "Caterham", "Changan", "Chery",
+            "Chevrolet", "Chrysler", "Citroen", "Cupra", "Dacia", "Daewoo", "Daihatsu",
+            "Datsun", "De Tomaso", "Dodge", "Donkervoort", "DS", "Eagle", "Ferrari", "Fiat",
+            "Fisker", "Force", "Ford", "Foton", "GAZ", "Geely", "Genesis", "Ginetta",
+            "GMC", "Great Wall", "Haval", "Holden", "Honda", "Hummer", "Hyundai", "Infiniti"
+        ].randomElement()!
+    }
+    
+    func vehicleModel() -> String{
+        let modelsByMake: [String: [String]] = [
+            "Tesla": ["Model S", "Model 3", "Model X", "Model Y"], // Tesla
+            "Honda": ["Civic", "Accord", "CR-V", "Pilot"], // Honda
+            "Toyota": ["Corolla", "Camry", "RAV4", "Highlander"], // Toyota
+            "BMW": ["3 Series", "5 Series", "X5", "M3"], // BMW
+            "Mercedes-Benz": ["C-Class", "E-Class", "S-Class", "GLE"], // Mercedes-Benz
+            "Porsche": ["911", "Cayenne", "Taycan", "Panamera"], // Porsche
+            "Jeep": ["Wrangler", "Grand Cherokee", "Cherokee", "Renegade"], // Jeep
+            "Audi": ["Q5", "A4", "A6", "TT"], // Audi
+            "Subaru": ["Outback", "Forester", "Impreza", "Legacy"], // Subaru
+            "Mazda": ["CX-5", "Mazda3", "Mazda6", "MX-5 Miata"], // Mazda
+            "Land Rover": ["Range Rover", "Discovery", "Defender", "Evoque"], // Land Rover
+            "Lamborghini": ["Aventador", "Huracan", "Urus", "Gallardo"], // Lamborghini
+            "Bugatti": ["Veyron", "Chiron", "Divo", "Centodieci"], // Bugatti
+            "Volkswagen": ["Golf", "Passat", "Tiguan", "Arteon"], // Volkswagen
+            "Volvo": ["S60", "XC90", "V90", "XC40"], // Volvo
+            "Alfa Romeo": ["Giulia", "Stelvio", "4C", "Giulietta"], // Alfa Romeo
+            "Dodge": ["Challenger", "Charger", "Durango", "Journey"], // Dodge
+            "Cadillac": ["CT4", "CT5", "Escalade", "XT5"], // Cadillac
+            "Nissan": ["Rogue", "Altima", "Leaf", "Murano"], // Nissan
+            "Chevrolet": ["Sonic", "Malibu", "Equinox", "Traverse","Silverado", "Camaro", "Tahoe", "Suburban"], // Chevrolet
+            "Ford": ["Fiesta", "Focus", "Edge", "Bronco","Mustang", "Explorer", "Escape"] // Ford
+        ]
+        
+            return modelsByMake.randomElement()!.value.randomElement()!
+        
+    }
+    
+    func vehicleYear() -> String {
+        return String(Int.random(in: 2020...2024))
     }
     
     func email() -> String {

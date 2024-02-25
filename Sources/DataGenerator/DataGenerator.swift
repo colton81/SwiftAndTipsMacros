@@ -143,6 +143,12 @@ public extension DataGenerator {
                     stringCollection.randomElement()!
                 case .vin:
                         Provider().vin()
+                case .vehicleMake:
+                    Provider().vehicleMake()
+                case .vehicleModel:
+                        Provider().vehicleModel()
+                case .vehicleYear:
+                    Provider().vehicleYear()
                 }
             },
             bool: { Provider().randomBool() },

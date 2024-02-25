@@ -57,7 +57,7 @@ public struct SampleBuilderMacro: MemberMacro {
         if let structDecl = declaration.as(StructDeclSyntax.self) {
            
             
-            var syntax = SampleBuilderMacroForStruct(
+            let syntax = SampleBuilderMacroForStruct(
                 structDecl: structDecl,
                 numberOfItems: numberOfItems,
                 generatorType: generatorType, 

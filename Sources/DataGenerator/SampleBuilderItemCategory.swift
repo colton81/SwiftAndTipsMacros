@@ -28,4 +28,9 @@ public enum SampleBuilderItemCategory {
     case image(width: Int, height: Int)
     case url
     case vin
+    case vehicleMake
+    case vehicleModel
+    case vehicleYear
+    
+    
 }

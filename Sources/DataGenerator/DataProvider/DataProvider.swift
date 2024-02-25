@@ -20,6 +20,9 @@ protocol StringDataProvider {
     func fullName() -> String
     func email() -> String
     func vin() -> String
+    func vehicleMake() -> String
+    func vehicleModel() -> String
+    func vehicleYear() -> String
     func address() -> String
     func appVersion() -> String
     func username() -> String

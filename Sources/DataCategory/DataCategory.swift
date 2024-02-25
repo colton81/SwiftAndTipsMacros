@@ -28,6 +28,9 @@ public struct DataCategory: RawRepresentable {
         case companyName
         case username
         case vin
+        case vehicleMake
+        case vehicleModel
+        case vehicleYear
         //Double
         case price
         case url
@@ -96,12 +99,13 @@ public struct DataCategory: RawRepresentable {
         switch self.category {
         case .builtInValue(let value):
             switch value {
-                case .firstName, .lastName, .fullName, .email, .address, .appVersion, .creditCardNumber, .companyName, .username, .vin:
+                case .firstName, .lastName, .fullName, .email, .address, .appVersion, .creditCardNumber, .companyName, .username, .vin,.vehicleMake,.vehicleModel,.vehicleYear:
                 return .string
             case .price:
                 return .double
             case .url:
                 return .url
+                
             }
         case .image:
             return .url
@@ -118,7 +122,9 @@ public struct DataCategory: RawRepresentable {
         case .string:
             let stringCategories: Set<BuiltInValue> = [
                 .firstName, .lastName, .fullName, .email,
-                .address, .appVersion, .creditCardNumber, .companyName, .username, .vin
+                .address, .appVersion, .creditCardNumber,
+                .companyName, .username, .vin, .vehicleMake,
+                .vehicleYear, .vehicleModel
             ]
             
             guard case .builtInValue(let value) = category

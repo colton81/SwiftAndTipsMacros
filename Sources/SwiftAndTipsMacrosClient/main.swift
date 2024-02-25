@@ -12,95 +12,18 @@ import DataGenerator
 @SampleBuilder(numberOfItems: 3, dataGeneratorType: .random)
 public struct VINData: Codable,Identifiable, Hashable {
     public var id:UUID = .init()
-    public var bodyClass: String
-    public var displacementL: String
-    public var doors: String
-    public var engineCylinders: String
-    public var engineHP: String
     
-    public var engineManufacturer: String
-    public var errorCode: String
-    public var errorText: String
-    public var fuelTypePrimary: String
-    @SampleBuilderItem(category: .creditCardNumber)
+    @SampleBuilderItem(category: .vehicleMake)
     public var make: String
-    
-    @SampleBuilderItem(category: .firstName)
-    public var manufacturer: String
-    
 
-    @SampleBuilderItem(category: .firstName)
+    @SampleBuilderItem(category: .vehicleModel)
     public var model: String
-    public var modelID: String
     
-    @SampleBuilderItem(category: .username)
+    @SampleBuilderItem(category: .vehicleYear)
     public var modelYear: String
-    
-    public var plantCity: String
-    public var plantCompanyName: String
-    public var plantCountry: String
-    public var plantState: String
-    public var series: String
-    public var trim: String
     
     @SampleBuilderItem(category: .vin)
     public var vin: String
-    
-    public var vehicleType: String
-    
-    enum CodingKeys: String, CodingKey {
-        case bodyClass = "BodyClass"
-        case displacementL = "DisplacementL"
-        case doors = "Doors"
-        case engineCylinders = "EngineCylinders"
-        case engineHP = "EngineHP"
-        case engineManufacturer = "EngineManufacturer"
-        case errorCode = "ErrorCode"
-        case errorText = "ErrorText"
-        case fuelTypePrimary = "FuelTypePrimary"
-        case make = "Make"
-        case manufacturer = "Manufacturer"
-        case model = "Model"
-        case modelID = "ModelID"
-        case modelYear = "ModelYear"
-        case plantCity = "PlantCity"
-        case plantCompanyName = "PlantCompanyName"
-        case plantCountry = "PlantCountry"
-        case plantState = "PlantState"
-        case series = "Series"
-        case trim = "Trim"
-        case vin = "VIN"
-        case vehicleType = "VehicleType"
-    }
-
-    
-}
-
-extension VINData{
-    public init(bodyClass: String = "", displacementL: String = "", doors: String = "", engineCylinders: String = "", engineHP: String = "", engineManufacturer: String = "", errorCode: String = "", errorText: String = "", fuelTypePrimary: String = "", make: String = "", manufacturer: String = "", model: String = "", modelID: String = "", modelYear: String = "", plantCity: String = "", plantCompanyName: String = "", plantCountry: String = "", plantState: String = "", series: String = "", trim: String = "", vin: String = "", vehicleType: String = "") {
-        self.bodyClass = bodyClass
-        self.displacementL = displacementL
-        self.doors = doors
-        self.engineCylinders = engineCylinders
-        self.engineHP = engineHP
-        self.engineManufacturer = engineManufacturer
-        self.errorCode = errorCode
-        self.errorText = errorText
-        self.fuelTypePrimary = fuelTypePrimary
-        self.make = make
-        self.manufacturer = manufacturer
-        self.model = model
-        self.modelID = modelID
-        self.modelYear = modelYear
-        self.plantCity = plantCity
-        self.plantCompanyName = plantCompanyName
-        self.plantCountry = plantCountry
-        self.plantState = plantState
-        self.series = series
-        self.trim = trim
-        self.vin = vin
-        self.vehicleType = vehicleType
-    }
 }
 
 
